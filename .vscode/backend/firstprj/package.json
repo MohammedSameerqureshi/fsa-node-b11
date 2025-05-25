@@ -1,20 +1,20 @@
 {
   "name": "firstprj",
   "version": "1.0.0",
-  "description": "A Backend Server on NodeJS",
-  "main": "app.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "A backend sever on NodeJS",
+  "homepage": "https://github.com/MohammedSameerqureshi/fsa-node-b11#readme",
+  "bugs": {
+    "url": "https://github.com/MohammedSameerqureshi/fsa-node-b11/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MohammedSameerqureshi/fir-prj.git"
+    "url": "git+https://github.com/MohammedSameerqureshi/fsa-node-b11.git"
   },
-  "author": "sameer qureshi",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MohammedSameerqureshi/fir-prj/issues"
-  },
-  "homepage": "https://github.com/MohammedSameerqureshi/fir-prj#readme"
+  "author": "Sameer Qureshi",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }

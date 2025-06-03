@@ -1,19 +1,26 @@
-import http from "http";
-// nodeconst require = require("http");
+import express from "express";
+import defaultRouter from "./routes/defaultRoute.js"
+import booksRouter from "./routes/booksRoute.js" 
+const app = express();
 
- const server = http.createServer((req, res) => {
-    //   console.log(req.body);
-    // res.statusCode = 400;
-    // res.end("hello world");
-    if (req.url.includes("Welcome")) {
-        res.statusCode = 200;
-        res.end("Welcome to my Backend Server");
-    } else {
-        res.statusCode = 404;
-        res.end();
-    }
- }) ;
+app.listen(5000, () => console.log("Server is Up and Running"));
+app.use(express.json());
 
+// let books = [
+//     {id: 1, title: "KRRISH", author: "Rakesh Roshan"},
+//     {id: 2, title: "DHOOM", author: "kARAN JOHAR"},
+//     {id: 3, title: "VEER", author: "SALMAN KHAN"},
+//     {id: 4, title: "TITANIC", author: "JAMES CAMERON"},
+// ]
 
+app.use("/", defaultRouter);
 
-server.listen(5000, () => console.log("Server UP & Running"));
+app.use("/books", booksRouter);
+
+// HTTP METHODS - GET , POST , PATCH , PUT , DELETE 
+
+// http://localhost:5000/users/getUsersList
+// http://localhost:5000/users/addUsers
+// http://localhost:5000/users/updateUsers
+// http://localhost:5000/users/deleteUsers
+

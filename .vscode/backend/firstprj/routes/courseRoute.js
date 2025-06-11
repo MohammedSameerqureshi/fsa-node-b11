@@ -1,0 +1,10 @@
+import express from "express";
+import { add, deleteCourse, get, update, updatePut } from "../controller/couresCtrl.js";
+const router = express.Router();
+
+router.get("/courseList", get);
+router.post("/addCourse", add)
+router.patch("/updateCourse", update)
+router.put("/compUpdateCourse", updatePut)
+router.delete("/deleteCourse/:id", deleteCourse)
+export default router;

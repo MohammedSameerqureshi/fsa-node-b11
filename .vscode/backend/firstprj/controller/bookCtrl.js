@@ -40,4 +40,20 @@ const getBooks = (req, res) => {
     }
     };
 
-export { getBooks, addBook , editBook };
+    const deleteBook = (req, res) => {
+        let bookId = req.params.id;
+        let bookInx = books.findIndex((ele) => ele.id === parseInt(bookId));
+
+        if (bookInx > -1){
+            let booksArr = books.filter((ele) => ele.id !== bookInx);
+            books = booksArr
+            res.status(200);
+            res.json({message : "Book Deleted Successfully", success: true});
+        } else {
+            res.status(400);
+            res.json({message:"Book Doesnt exist", success: false });
+        }
+
+    }
+
+export { getBooks, addBook , editBook , deleteBook };

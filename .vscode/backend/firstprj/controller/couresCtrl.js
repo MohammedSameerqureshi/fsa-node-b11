@@ -1,13 +1,24 @@
 import courseModel from "../models/coursesModel.js";
+import { getOptions } from "../utils/utils.js";
+
+
 
 const get = async(req, res) => {
     try {
-        const courses = await courseModel.find();
-        res.status(200).json({message: "Courses Fetched Successfully", success: true, data: courses});
-    } catch (err) {
+        const { sort, dir, skip, pageSize,} = getOptions(req);
+        const courses = await courseModel
+        .find()
+        .sort({ [sort]: dir })
+        .skip(skip)
+        .limit(pageSize);
+        const totalRecords = await courseModel.countDocuments();
+        res.status(200).json({message: "Courses Fetched Successfully", success: true, data: courses, totalRecords});
+      } catch (err) {
         res.status(500).json({message: "Internal Server Error!", success: false});
     }
-}; 
+};
+
+
 const add = async (req, res) =>{
     try {
         const data = req.body
